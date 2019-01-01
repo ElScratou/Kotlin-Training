@@ -6,8 +6,7 @@ fun example5() {
     result == listOf("a", "cc", "bbb")
 }
 
+/**
+ * Return a list of customers, sorted by the ascending number of orders they made
+ */
 fun Shop.getCustomersSortedByNumberOfOrders(): List<Customer> = customers.sortedBy { it.orders.size };
-/*{
-    // Return a list of customers, sorted by the ascending number of orders they made
-    todoCollectionTask()
-}*/
