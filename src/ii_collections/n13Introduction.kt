@@ -16,9 +16,11 @@ fun example0(list: List<Int>) {
     list.toCollection(HashSet<Int>())
 }
 
-fun Shop.getSetOfCustomers(): Set<Customer> {
+fun Shop.getSetOfCustomers(): Set<Customer> = customers.toSet() ;
+/*{
     // Return a set containing all the customers of this shop
-    todoCollectionTask()
+    //todoCollectionTask()
 //    return this.customers
-}
+    return customers.toSet()
+}*/
 
