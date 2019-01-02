@@ -16,6 +16,20 @@ enum class TimeInterval {
     YEAR
 }
 
-class DateRange(override val start: MyDate, override val endInclusive: MyDate) : ClosedRange<MyDate> {
+class DateRange(override val start: MyDate, override val endInclusive: MyDate) : Iterable<MyDate>, ClosedRange<MyDate> {
+    override fun iterator(): Iterator<MyDate> = DateIterator(this);
+
+    class DateIterator(val dateRange: DateRange) : Iterator<MyDate>{
+        var it = dateRange.start;
+
+        override fun hasNext(): Boolean = it <= dateRange.endInclusive;
+
+        override fun next(): MyDate {
+            val it_current = it
+            it = it.nextDay()
+            return it_current
+        }
+    }
+
     override fun contains(d: MyDate): Boolean = start <= d && d <= endInclusive;
 }
