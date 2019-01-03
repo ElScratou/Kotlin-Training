@@ -8,7 +8,7 @@ class N33LazyPropertyKtTest {
         var initialized = false
         val lazyProperty = LazyProperty({ initialized = true; 42 })
         assertFalse("Property shouldn't be initialized before access", initialized)
-        val result: Int = lazyProperty.lazy
+        val result: Int? = lazyProperty.lazy
         assertTrue("Property should be initialized after access", initialized)
         assertEquals(42, result)
     }
